@@ -1,4 +1,5 @@
 #include <iostream>
+#include<cstdlib>
 using namespace std;
 struct Node {
    int data;
@@ -97,6 +98,7 @@ void display() {
           cout<< p->data <<" ";
           p = p->next;
        }
+       cout<<"\n";
     }
 }
 
@@ -138,17 +140,62 @@ void search(int key){
     }
 }
 
+
 int main() {
 
-    insertfront(5);
-    insertlast(6);
-    insertAfter(6,8);
-    insertfront(21);
-    insertlast(7);
-    deleteFront();
-    deleteLast();
-    update(8,7);
-    search(6);
-    display();
+
+    cout<<"#########################################################\n";
+    cout<<"###                                                   ###\n";
+    cout<<"###    C++ program to implement singly linked list    ###\n";
+    cout<<"###                                                   ###\n";
+    cout<<"#########################################################\n";
+
+    while(true){
+        cout<<"   --  Enter your choice to continue  --   \n";
+        cout<<"1. Insert Front\n2. Insert Last\n3. insert After\n4. delete Front\n"<<
+        "5. delete Last\n6. update\n7. search\n8. display\n9. exit\n";
+        int command, value, position;
+        cin >> command;
+        switch (command){
+        case 1:
+            cout<<"enter the value to be inserted : "; cin >> value;
+            insertfront(value); break;
+        case 2:
+            cout<<"enter the value to be inserted : "; cin >> value;
+            insertlast(value); break;
+        case 3:
+            cout<<"enter the value to be inserted : "; cin >> value;
+            cout<<"Enter the position at which node to be inserted after : "; cin >> position;
+            insertAfter(position,value); break;
+        case 4:
+            deleteFront();
+            break;
+        case 5:
+            deleteLast();
+            break;
+        case 6:
+            cout<<"enter the value to be updated : "; cin >> position;
+            cout<<"Enter the new value : "; cin >> value;
+            update(position,value);
+            break;
+        case 7:
+            cout<<"enter the value you are looking for : "; cin >> value;
+            search(value);
+            break;
+        case 8:
+            display();
+            break;
+        case 9:
+            exit(1);
+            break;
+
+        default:
+            cout << "wrong choice\n";
+            break;
+        }
+
+    }
 
 }
+
+
